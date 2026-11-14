@@ -19,7 +19,8 @@ export const getRules: (
   availableTradeRateRegistry: AvailableTradeRateRegistry = availableTradeRateRegistryInstance,
   playerTradeRatesRegistry: PlayerTradeRatesRegistry = playerTradeRatesRegistryInstance
 ): Added[] => [
-  // A new civilization starts at 40% tax, 40% research and 20% luxuries (OpenCiv2 `src/auto/civ.cpp:4625`), until its
+  // A new civilization starts at 40% tax, 40% research and 20% luxuries (OpenCiv2 `src/auto/civ.cpp`
+  //  `civ_create_reset_civ`, richardpenman/civ2@49f26ec), until its
   //  leader is known: the rates are set again as it's given its units (`Rules/Player/spawn`).
   new Added(
     'civ2-trade-rate:player/added/rates',

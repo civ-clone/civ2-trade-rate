@@ -25,8 +25,9 @@ exports.civilizeOf = civilizeOf;
 const getRules = (playerTradeRatesRegistry = PlayerTradeRatesRegistry_1.instance, clientRegistry = ClientRegistry_1.instance, traitRegistry = TraitRegistry_1.instance) => [
     // Once the civilization has its leader and its units, the rates it starts with. A computer player's research is its
     //  leader's civilize score + 3 tenths, its tax 9 tenths less that, leaving 10% luxuries (OpenCiv2
-    //  `src/auto/civ.cpp:4762-4763`): 40/50/10 for a Civilized leader, 30/60/10 for most, 20/70/10 for a Militaristic
-    //  one. A person starts at 60% research and 40% tax, the game's preferences (`src/auto/game.cpp:6748-6763`).
+    //  `src/auto/civ.cpp` `civ_create`, richardpenman/civ2@49f26ec): 40/50/10 for a Civilized leader, 30/60/10 for most, 20/70/10 for a Militaristic
+    //  one. A person starts at 60% research and 40% tax, the default of the game's saved preferences
+    //  (`src/auto/game.cpp` `game_init_new`).
     new Spawn_1.default('civ2-trade-rate:player/spawn/rates', new Effect_1.default((player) => {
         const rates = playerTradeRatesRegistry.getByPlayer(player);
         if ((0, isHuman_1.default)(player, clientRegistry)) {

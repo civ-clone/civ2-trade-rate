@@ -148,7 +148,7 @@ describe('civ2-trade-rate', (): void => {
     })
   );
 
-  // [luxuries, research, tax] in percent, the trade, and what `city_split_trade` (OpenCiv2 `src/auto/city.cpp:9682`)
+  // [luxuries, research, tax] in percent, the trade, and what `city_split_trade` (OpenCiv2 `src/auto/city.cpp`, richardpenman/civ2@49f26ec)
   //  gives, worked out by hand from `(trade × tenths + 4) / 10` for luxuries and research, and the rest for tax.
   (
     [
