@@ -28,6 +28,11 @@ const getRules = (playerTradeRatesRegistry = PlayerTradeRatesRegistry_1.instance
     //  `src/auto/civ.cpp` `civ_create`, richardpenman/civ2@49f26ec): 40/50/10 for a Civilized leader, 30/60/10 for most, 20/70/10 for a Militaristic
     //  one. A person starts at 60% research and 40% tax, the default of the game's saved preferences
     //  (`src/auto/game.cpp` `game_init_new`).
+    //
+    // Both fit the maximum rates under Despotism (`Rules/Player/max-rate`): a person's 60% research is the most allowed,
+    //  and a computer player's research is at most 40%. A Militaristic computer player's 70% tax is the original's too
+    //  (`civ_create`, richardpenman/civ2@e39fe7b `civ.cpp:4759`): only a computer player's research is limited, never
+    //  its tax.
     new Spawn_1.default('civ2-trade-rate:player/spawn/rates', new Effect_1.default((player) => {
         const rates = playerTradeRatesRegistry.getByPlayer(player);
         if ((0, isHuman_1.default)(player, clientRegistry)) {
