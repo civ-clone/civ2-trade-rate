@@ -32,11 +32,18 @@
   "dependencies": {
     "@civ-clone/base-city-yield-corruption": "^0.1.1",
     "@civ-clone/base-difficulty": "^0.1.0",
+    "@civ-clone/base-government-anarchy": "^0.1.0",
+    "@civ-clone/base-government-communism": "^0.1.0",
+    "@civ-clone/base-government-democracy": "^0.1.0",
+    "@civ-clone/base-government-despotism": "^0.1.0",
+    "@civ-clone/base-government-fundamentalism": "^0.1.1",
+    "@civ-clone/base-government-monarchy": "^0.1.0",
+    "@civ-clone/base-government-republic": "^0.1.0",
     "@civ-clone/base-leader-personality": "^0.1.2",
     "@civ-clone/base-leader-trait-militarism": "^0.1.1",
     "@civ-clone/base-player-action-adjust-trade-rates": "^0.1.1",
     "@civ-clone/base-terrain-yield-trade": "^0.1.0",
-    "@civ-clone/base-trade-rate": "^0.1.1",
+    "@civ-clone/base-trade-rate": "^0.1.2",
     "@civ-clone/base-trade-rate-luxuries": "^0.1.0",
     "@civ-clone/base-trade-rate-research": "^0.1.1",
     "@civ-clone/base-trade-rate-tax": "^0.1.0",
@@ -44,9 +51,10 @@
     "@civ-clone/core-civilization": "^0.1.8",
     "@civ-clone/core-client": "^0.1.4",
     "@civ-clone/core-game": "^0.1.17",
+    "@civ-clone/core-government": "^0.1.6",
     "@civ-clone/core-player": "^0.1.10",
     "@civ-clone/core-rule": "^0.1.9",
-    "@civ-clone/core-trade-rate": "^0.1.6",
+    "@civ-clone/core-trade-rate": "^0.1.7",
     "@civ-clone/core-yield": "^0.1.6"
   }
 }

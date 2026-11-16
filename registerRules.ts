@@ -1,4 +1,6 @@
 import cityYield from './Rules/City/yield';
+import governmentChanged from './Rules/Player/government-changed';
+import maxRate from './Rules/Player/max-rate';
 import playerAction from './Rules/Player/action';
 import playerAdded from './Rules/Player/added';
 import playerSpawn from './Rules/Player/spawn';
@@ -9,9 +11,11 @@ export const register = (game: Game): void =>
   game.rules.register(
     ...cityYield(game.availableTradeRates, game.playerTradeRates),
     ...playerAction(game.playerTradeRates),
-    ...playerAdded(game.availableTradeRates, game.playerTradeRates),
+    ...playerAdded(game.availableTradeRates, game.playerTradeRates, game.rules),
     ...playerSpawn(game.playerTradeRates, game.clients, game.traits),
-    ...playerTurnStart(game.rules, game.cities, game.availableTradeRates)
+    ...playerTurnStart(game.rules, game.cities, game.availableTradeRates),
+    ...maxRate(game.playerGovernments, game.clients),
+    ...governmentChanged(game.playerTradeRates, game.clients)
   );
 
 // The plugin loader imports each package for this side effect. Until it passes
