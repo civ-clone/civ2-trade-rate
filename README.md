@@ -21,5 +21,7 @@ How Civilization II turns a city's trade into luxuries, research and tax, and th
     (`civ_process_cities_turn`). Its tax and luxuries aren't limited, so a Militaristic leader's 70% starting tax
     stands.
 
-  Rates over the new maximums are brought down when the government changes. A player with no government yet has no
-  maximums. Fundamentalism's own limit on research (50%) is civ2-science's.
+  Rates over the new maximums are brought down when the government changes, except a person's on entering Anarchy:
+  the original opens the rates dialog, which clamps them, only for a government after it (`civ_set_government`). A
+  player with no government yet has no maximums. Fundamentalism's own limit on research (50%) is civ2-science's,
+  applied in the split.

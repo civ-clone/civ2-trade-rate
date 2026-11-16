@@ -9,7 +9,7 @@ const added_1 = require("./Rules/Player/added");
 const spawn_1 = require("./Rules/Player/spawn");
 const turn_start_1 = require("./Rules/Player/turn-start");
 const core_game_1 = require("@civ-clone/core-game");
-const register = (game) => game.rules.register(...(0, yield_1.default)(game.availableTradeRates, game.playerTradeRates), ...(0, action_1.default)(game.playerTradeRates), ...(0, added_1.default)(game.availableTradeRates, game.playerTradeRates, game.rules), ...(0, spawn_1.default)(game.playerTradeRates, game.clients, game.traits), ...(0, turn_start_1.default)(game.rules, game.cities, game.availableTradeRates), ...(0, max_rate_1.default)(game.playerGovernments, game.clients), ...(0, government_changed_1.default)(game.playerTradeRates));
+const register = (game) => game.rules.register(...(0, yield_1.default)(game.availableTradeRates, game.playerTradeRates), ...(0, action_1.default)(game.playerTradeRates), ...(0, added_1.default)(game.availableTradeRates, game.playerTradeRates, game.rules), ...(0, spawn_1.default)(game.playerTradeRates, game.clients, game.traits), ...(0, turn_start_1.default)(game.rules, game.cities, game.availableTradeRates), ...(0, max_rate_1.default)(game.playerGovernments, game.clients), ...(0, government_changed_1.default)(game.playerTradeRates, game.clients));
 exports.register = register;
 // The plugin loader imports each package for this side effect. Until it passes
 // a `Game` of its own, dropping it would produce a game with silently absent

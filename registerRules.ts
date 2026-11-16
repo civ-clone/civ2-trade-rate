@@ -15,7 +15,7 @@ export const register = (game: Game): void =>
     ...playerSpawn(game.playerTradeRates, game.clients, game.traits),
     ...playerTurnStart(game.rules, game.cities, game.availableTradeRates),
     ...maxRate(game.playerGovernments, game.clients),
-    ...governmentChanged(game.playerTradeRates)
+    ...governmentChanged(game.playerTradeRates, game.clients)
   );
 
 // The plugin loader imports each package for this side effect. Until it passes

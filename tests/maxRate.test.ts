@@ -48,7 +48,7 @@ const setUp = (kind: Kind, GovernmentType: typeof Government | null) => {
       ),
       ...spawn(playerTradeRatesRegistry, clientRegistry, traitRegistry),
       ...maxRate(playerGovernmentRegistry, clientRegistry),
-      ...governmentChanged(playerTradeRatesRegistry)
+      ...governmentChanged(playerTradeRatesRegistry, clientRegistry)
     );
 
     const player = new Player(ruleRegistry),
@@ -195,12 +195,35 @@ describe('civ2-trade-rate maximum rates', (): void => {
     expect(orderFor(computer, Luxuries)).to.deep.equal([undefined]);
   });
 
-  it("brings a person's rates down at a change of government", (): void => {
+  it("brings a person's rates down at a change to any government but Anarchy", (): void => {
     const { playerGovernment, rates, values } = setUp('person', Democracy);
 
     set(rates, [0, 100, 0]);
     expect(values()).to.deep.equal([0, 100, 0]);
 
+    playerGovernment.set(new Monarchy());
+
+    expect(values()).to.deep.equal([0, 70, 30]);
+  });
+
+  it("leaves a person's rates as they are on entering Anarchy, as the original opens no rates dialog then", (): void => {
+    const { playerGovernment, rates, values } = setUp('person', Democracy);
+
+    set(rates, [0, 100, 0]);
+    playerGovernment.set(new Anarchy());
+
+    expect(values()).to.deep.equal([0, 100, 0]);
+
+    // Setting them again still keeps to Anarchy's maximum.
+    set(rates, [0, 100, 0]);
+
+    expect(values()).to.deep.equal([0, 60, 40]);
+  });
+
+  it("brings a computer player's research down on entering Anarchy", (): void => {
+    const { playerGovernment, rates, values } = setUp('computer', Democracy);
+
+    set(rates, [0, 100, 0]);
     playerGovernment.set(new Anarchy());
 
     expect(values()).to.deep.equal([0, 60, 40]);
